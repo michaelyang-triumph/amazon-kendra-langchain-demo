@@ -1,7 +1,7 @@
 from aws_langchain.kendra_index_retriever import KendraIndexRetriever
 from langchain.chains import ConversationalRetrievalChain
 from langchain.prompts import PromptTemplate
-from langchain import OpenAI
+from langchain.chat_models import ChatOpenAI
 import sys
 import os
 

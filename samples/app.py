@@ -6,7 +6,7 @@ import kendra_chat_anthropic as anthropic
 import kendra_chat_flan_xl as flanxl
 import kendra_chat_flan_xxl as flanxxl
 import kendra_chat_open_ai as openai
-
+import kendra_chat_open_ai_chatgpt as chatgpt
 
 USER_ICON = "images/user-icon.png"
 AI_ICON = "images/ai-icon.png"
@@ -15,7 +15,8 @@ PROVIDER_MAP = {
     'openai': 'Open AI',
     'anthropic': 'Anthropic',
     'flanxl': 'Flan XL',
-    'flanxxl': 'Flan XXL'
+    'flanxxl': 'Flan XXL',
+    'chatgpt': 'Chatgpt'
 }
 
 # Check if the user ID is already stored in the session state
@@ -42,6 +43,9 @@ if 'llm_chain' not in st.session_state:
         elif (sys.argv[1] == 'openai'):
             st.session_state['llm_app'] = openai
             st.session_state['llm_chain'] = openai.build_chain()
+        elif (sys.argv[1] == 'chatgpt'):
+            st.session_state['llm_app'] = chatgpt
+            st.session_state['llm_chain'] = chatgpt.build_chain()
         else:
             raise Exception("Unsupported LLM: ", sys.argv[1])
     else:
