@@ -16,7 +16,7 @@ cd amazon-kendra-langchain-extensions
 
 Install the classes
 ```bash
-pip install .
+run install_dep.sh
 ```
 
 ## Usage
@@ -85,51 +85,10 @@ If you wish to create a sample Kendra index and index sample data and experiment
 
 
 ## Running samples
-For executing sample chains, install the optional dependencies
+1. Edit duplicate run_app_template.sh as run_app.sh
+2. Replace env variables 
+3. 
 ```bash
-pip install ".[samples]"
+sh run_app.sh
 ```
-
-Ensure that the environment variables are set for the aws region, kendra index id and the provider/model used by the sample.
-For example, for running the `kendra_chat_flan_xl.py` sample, these environment variables must be set: AWS_REGION, KENDRA_INDEX_ID
-and FLAN_XL_ENDPOINT.
-You can use commands as below to set the environment variables.
-```bash
-export AWS_REGION="<YOUR-AWS-REGION>"
-export KENDRA_INDEX_ID="<YOUR-KENDRA-INDEX-ID>"
-export FLAN_XL_ENDPOINT="<YOUR-SAGEMAKER-ENDPOINT-FOR-FLAN-T-XL>"
-export FLAN_XXL_ENDPOINT="<YOUR-SAGEMAKER-ENDPOINT-FOR-FLAN-T-XXL>"
-export OPENAI_API_KEY="<YOUR-OPEN-AI-API-KEY>"
-export ANTHROPIC_API_KEY="<YOUR-ANTHROPIC-API-KEY>"
-```
-
-### Running samples from the streamlit app
-The samples directory is bundled with an `app.py` file that can be run as a web app using streamlit. 
-```bash
-cd samples
-streamlit run app.py anthropic
-```
-The above command will run the `kendra_chat_anthropic` as the LLM chain. In order to run a different chain, pass a different provider, for example for running the `open_ai` chain run this command `streamlit run app.py openai`.
-
-### Running samples from the command line
-```bash
-python samples/<sample-file-name.py>
-```
-
-## Uninstall
-```bash
-pip uninstall aws-langchain
-```
-
-## Contributing
-Create your GitHub branch and make a pull request.
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
-
-Install in editable mode, this will make sure your changes are synced in local python env
-```bash
-pip install -e ".[dev]"
-```
-
-## License
-This library is licensed under the MIT-0 License. See the LICENSE file.
 
